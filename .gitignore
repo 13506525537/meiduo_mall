@@ -4,3 +4,6 @@
 
 # pycharm生成文件
 .idea/*
+
+# pycharm meiduo
+meiduo_mall/.idea/*
