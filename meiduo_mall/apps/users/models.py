@@ -30,6 +30,9 @@ from django.db import models
 # 这个用户模型有密码加密和密码验证
 from django.contrib.auth.models import AbstractUser
 
+# 用户组和用户权限只能关联一个用户表，
+# 我们自己定义了一个用户表，系统还有一个用户表，这个时候就会出现问题
+# 解决方案： 让我们的模型替换系统的User就可以
 # 继承系统模型，重写phone
 class User(AbstractUser):
     phone = models.CharField(max_length=11, unique=True)
