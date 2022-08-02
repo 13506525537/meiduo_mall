@@ -11,3 +11,39 @@
 [2022-08-02 17:05:56,145] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
 [2022-08-02 17:06:01,532] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
 [2022-08-02 17:11:28,931] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 19:26:24,881] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 19:26:32,070] [basehttp.py:187] [basehttp:log_message] [INFO]- "GET / HTTP/1.1" 200 10633
+[2022-08-02 19:26:32,340] [basehttp.py:187] [basehttp:log_message] [INFO]- "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[2022-08-02 19:26:32,585] [basehttp.py:187] [basehttp:log_message] [INFO]- "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 85876
+[2022-08-02 19:26:32,586] [basehttp.py:187] [basehttp:log_message] [INFO]- "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 86184
+[2022-08-02 19:26:32,609] [basehttp.py:187] [basehttp:log_message] [INFO]- "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 85692
+[2022-08-02 19:26:32,852] [log.py:241] [log:log_response] [WARNING]- Not Found: /favicon.ico
+[2022-08-02 19:26:32,853] [basehttp.py:187] [basehttp:log_message] [WARNING]- "GET /favicon.ico HTTP/1.1" 404 2115
+[2022-08-02 19:28:07,237] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\meiduo_mall\settings.py changed, reloading.
+[2022-08-02 19:28:07,697] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:19:56,392] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:19:57,171] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:21:01,636] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:21:02,195] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:22:10,501] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:22:11,109] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:24:18,534] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:24:19,013] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:28:23,475] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:28:24,323] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:30:43,226] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:30:43,789] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:31:28,289] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:31:28,795] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:32:21,232] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:32:21,924] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:32:52,376] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:32:52,895] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:33:43,314] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:33:43,811] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:35:18,577] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:35:19,246] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:36:02,969] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:36:03,600] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+[2022-08-02 20:43:55,914] [autoreload.py:266] [autoreload:trigger_reload] [INFO]- D:\python_porject\meiduo_mall\meiduo_mall\apps\users\models.py changed, reloading.
+[2022-08-02 20:43:56,385] [autoreload.py:677] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader

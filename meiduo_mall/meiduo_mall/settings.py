@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import time
-import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,12 +79,12 @@ WSGI_APPLICATION = 'meiduo_mall.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        # 'HOST' : '127.0.0.1',
-        'HOST': '172.169.101.223',
+        'HOST' : '127.0.0.1',
+        # 'HOST': '172.169.101.223',
         'PORT': 3306,
         'USER': 'root',
-        # 'PASSWORD': '123456',
-        'PASSWORD': 'Qwert1234567',
+        'PASSWORD': '123456',
+        # 'PASSWORD': 'Qwert1234567',
         'NAME': 'meiduo_mall'
     }
 }
