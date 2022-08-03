@@ -17,7 +17,6 @@ import time
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -28,7 +27,6 @@ SECRET_KEY = 'django-insecure-%*k$ylf!u)5svsnh=y+uu6s$&93&*txrr=fcwo07zy#x3!r*-b
 DEBUG = True
 
 ALLOWED_HOSTS = ['www.meiduo.site', '127.0.0.1']
-
 
 # Application definition
 
@@ -41,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.users', # 子应用注册
+    'apps.users',  # 子应用注册
 
 ]
 
@@ -77,23 +75,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'meiduo_mall.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        # 'HOST' : '127.0.0.1',
-        'HOST': '172.169.101.223',
+        'HOST': '127.0.0.1',
+        # 'HOST': '172.169.101.223',
         'PORT': 3306,
         'USER': 'root',
-        # 'PASSWORD': '123456',
-        'PASSWORD': 'Qwert1234567',
+        'PASSWORD': '123456',
+        # 'PASSWORD': 'Qwert1234567',
         'NAME': 'meiduo_mall'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -113,7 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -124,7 +119,6 @@ TIME_ZONE = 'Asia/Shanghai'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -241,7 +235,6 @@ LOGGING = {
 ###################model覆盖##################
 # 通过AUTH_USER_MODEL设置指向定义的模型，Django允许你覆盖默认的User模型
 AUTH_USER_MODEL = 'users.User'
-
 
 ############CORS###########################
 # 添加白名单

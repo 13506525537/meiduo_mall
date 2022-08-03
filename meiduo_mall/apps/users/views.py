@@ -3,7 +3,7 @@ import re
 
 from django.views import View
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from apps.users.models import User
 
 # Create your views here.
@@ -116,7 +116,7 @@ class UserRegister(View):
             }
             return JsonResponse(response)
         # 校验密码
-        if len(password)<8 or len(password)>20:
+        if len(password) < 8 or len(password) > 20:
             response = {
                 'code': 400,
                 'msg': '传入密码不符合规则'
@@ -130,7 +130,7 @@ class UserRegister(View):
             }
             return JsonResponse(response)
 
-        if not re.match('/^1[345789]\d{9}$/',mobile):
+        if not re.match('^1[345789]\d{9}$', mobile):
             response = {
                 'code': 400,
                 'msg': '您输入的手机号不正确'
@@ -144,11 +144,47 @@ class UserRegister(View):
             }
             return JsonResponse(response)
 
-        user = User(username=username,password=password,mobile=mobile)
-        user.save()
+        # 校验用户名重复
+        count = User.objects.filter(username=username).count()
+        if count > 0:
+            response = {
+                'code': 1,
+                'msg': '用户名重复'
+            }
+            return JsonResponse(response)
+
+        count = User.objects.filter(mobile=mobile).count()
+        if count > 0:
+            response = {
+                'code': 1,
+                'msg': '手机号重复'
+            }
+            return JsonResponse(response)
+        # 方法一 密码未加密
+        # user = User(username=username, password=password, mobile=mobile)
+        # user.save()
+
+        # 方法二
+        user = User.objects.create_user(username=username, password=password, mobile=mobile)
+        # 设置session
+        # response.session['username']=username
+
+        # django自带的方法
+        from django.contrib.auth import login
+
+        login(request, user)
 
         response = {
             'code': 0,
             'msg': 'ok'
         }
         return JsonResponse(response)
+
+
+"""
+1. 注册成功即表示已经登录，实现保持
+2. 注册成功后不表示登录，用户单独登录
+实现保持的方式：
+    1. 设置cookie 
+    2. 设置session
+"""
