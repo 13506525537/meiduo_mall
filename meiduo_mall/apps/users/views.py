@@ -1,7 +1,9 @@
 import json
+import re
+
 from django.views import View
 from django.shortcuts import render
-from django.http import HttpResponse,JsonResponse
+from django.http import HttpResponse, JsonResponse
 from apps.users.models import User
 
 # Create your views here.
@@ -37,6 +39,13 @@ class UsernameCount(View):
      """
 
     def get(self, request, username):
+        # 1. 接受用户名并判断,可以放到转化器里
+        # if not re.match("[a-zA-Z0-9_-]{5,20}", username):
+        #     response = {
+        #         'code': 200,
+        #         'msg': '用户名不符合要求'
+        #     }
+        #     return JsonResponse(response)
         count = User.objects.filter(username=username).count()
         if count == 0:
             response = {
@@ -52,4 +61,3 @@ class UsernameCount(View):
                 'msg': '用户已存在'
             }
             return JsonResponse(response)
-
