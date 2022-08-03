@@ -35,7 +35,7 @@ from django.contrib.auth.models import AbstractUser
 # 解决方案： 让我们的模型替换系统的User就可以
 # 继承系统模型，重写phone
 class User(AbstractUser):
-    phone = models.CharField(max_length=11, unique=True)
+    mobile = models.CharField(max_length=11, unique=True)
 
     class Meta:
         db_table = 'tb_user'

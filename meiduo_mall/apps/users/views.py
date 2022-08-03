@@ -61,3 +61,94 @@ class UsernameCount(View):
                 'msg': '用户已存在'
             }
             return JsonResponse(response)
+
+
+class MobilesCheck(View):
+    """
+        校验手机号是否重复
+
+    """
+    pass
+
+
+class UserRegister(View):
+    """
+    1. 接受请求
+    2. 验证数据
+        1. 用户名，密码，确认密码，手机号，是否统一协议 都要有
+        2. 用户名满足限制，且不能重复
+        3. 密码满足规则
+        4. 确认密码和密码一致
+        5. 手机号满足规则且手机号不能重复
+        6. 需要同意协议
+    3，数据入库
+    4. 响应  JSON{code:0, msg:"ok"}
+    5. 路由 POST register/
+
+    """
+
+    def post(self, request):
+        # 1.获取到的是二进制，需要解码，并转成json格式
+        bodystr = request.body.decode()
+        body = json.loads(bodystr)
+
+        # 2.获取各个值
+        username = body.get('username')
+        password = body.get('password')
+        password2 = body.get('password2')
+        mobile = body.get('mobile')
+        allow = body.get('allow')
+
+        # all([XXX,XXX])
+        # all里的元素只要是None或False，all就返回False
+        if not all([username, password, password2, mobile, allow]):
+            response = {
+                'code': 400,
+                'msg': '参数不全'
+            }
+            return JsonResponse(response)
+
+        # 校验用户名
+        if not re.match('[a-zA-Z0-9_-]{5,20}', username):
+            response = {
+                'code': 400,
+                'msg': '传入用户名不符合规则'
+            }
+            return JsonResponse(response)
+        # 校验密码
+        if len(password)<8 or len(password)>20:
+            response = {
+                'code': 400,
+                'msg': '传入密码不符合规则'
+            }
+            return JsonResponse(response)
+
+        if password != password2:
+            response = {
+                'code': 400,
+                'msg': '两次密码不一致'
+            }
+            return JsonResponse(response)
+
+        if not re.match('/^1[345789]\d{9}$/',mobile):
+            response = {
+                'code': 400,
+                'msg': '您输入的手机号不正确'
+            }
+            return JsonResponse(response)
+
+        if not allow:
+            response = {
+                'code': 400,
+                'msg': '您输入的手机号不正确'
+            }
+            return JsonResponse(response)
+
+        user = User(username=username,password=password,mobile=mobile)
+        user.save()
+
+        response = {
+            'code': 0,
+            'msg': 'ok'
+        }
+        return JsonResponse(response)
