@@ -7,3 +7,6 @@
 
 # pycharm meiduo
 meiduo_mall/.idea/*
+
+# log文件
+meiduo_mall/logs/*
