@@ -27,22 +27,27 @@ SECRET_KEY = 'django-insecure-%*k$ylf!u)5svsnh=y+uu6s$&93&*txrr=fcwo07zy#x3!r*-b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.meiduo.site', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # 注册CORS
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.users' # 子应用注册
+    'apps.users', # 子应用注册
+
 ]
 
 MIDDLEWARE = [
+    # 设置CORS中间层
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -236,3 +241,14 @@ LOGGING = {
 ###################model覆盖##################
 # 通过AUTH_USER_MODEL设置指向定义的模型，Django允许你覆盖默认的User模型
 AUTH_USER_MODEL = 'users.User'
+
+
+############CORS###########################
+# 添加白名单
+CORS_ORIGIN_WHITELIST = (
+    'http://127.0.0.1:8080',
+    'http://localhost:8080',
+    'http://www.meiduo.site:8080',
+    'http://www.meiduo.site:8000',
+)
+CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
