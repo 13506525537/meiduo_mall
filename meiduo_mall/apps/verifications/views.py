@@ -33,4 +33,4 @@ class ImageCodeView(View):
         redis_cli.setex(uuid, 300, text)
         # 用HttpResponse返回图片二进制
         # content_type 的语法是  ： 大类/小类
-        return HttpResponse(content=image,content_type="image/png")
+        return HttpResponse(content=image,content_type="image/jpeg")
