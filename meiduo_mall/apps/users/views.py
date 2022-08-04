@@ -172,7 +172,7 @@ class UserRegister(View):
         # django自带的方法
         from django.contrib.auth import login
 
-        login(request, user)
+        login(request, user)  # login函数会自动是设置session
 
         response = {
             'code': 0,
