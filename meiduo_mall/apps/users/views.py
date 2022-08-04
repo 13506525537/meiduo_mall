@@ -1,10 +1,13 @@
 import json
+import random
 import re
 
 from django.views import View
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from apps.users.models import User
+from django_redis import get_redis_connection
+from utils.SendMessage import send_message
 
 # Create your views here.
 """
@@ -188,3 +191,54 @@ class UserRegister(View):
     1. 设置cookie 
     2. 设置session
 """
+
+"""
+发送短信逻辑分析
+前端：
+    url = this.host + '/sms_codes/' + this.mobile + '/' + '?image_code=' + this.image_code + '&image_code_id=' + this.image_code_id
+    方式 get 两个参数： image_code, image_code_id
+后端:
+    1. 获取手机号
+    2. 校验image_code 和 image_code_id
+    3. 发送短信 (目前使用云联容)
+    4. 返回验证码内容给前端
+    
+
+"""
+
+
+class SendMessageView(View):
+    """发送短信类"""
+
+    def get(self, request, mobile):
+        # 获取参数中的值
+        req = request.GET
+        image_code = req.get('image_code')
+        image_code_id = req.get('image_code_id')
+
+        # 链接redis
+        res_cli = get_redis_connection('code')
+        # 查询UUID的缓存
+        result = res_cli.get(image_code_id)
+        if result:
+            result = result.decode()
+        # 校验验证码
+        # print(image_code,image_code_id,result)
+        if image_code.lower() != result.lower():
+            response = {
+                'code': 1,
+                'msg': '图片验证码错误'
+            }
+            return JsonResponse(response)
+        # 用random产生一个四位随机数
+        seeds = '1234567890'
+        mobile_code = []
+        for i in range(4):
+            num = random.choice(seeds)
+            mobile_code.append(num)
+        mobile_code = "".join(mobile_code)
+
+        resp = send_message(1, mobile, (mobile_code, 3))
+        print(mobile_code,resp)
+        return HttpResponse(resp)
+
